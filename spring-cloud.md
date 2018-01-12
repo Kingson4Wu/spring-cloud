@@ -1,4 +1,7 @@
 
++ Spring Boot 入门系列:<http://www.spring4all.com/article/246>
++ Spring Cloud 入门系列:<http://www.spring4all.com/article/320>
+
 ### Spring Cloud
 +  Spring Cloud是一个基于Spring Boot实现的云应用开发工具，它为基于JVM的云应用开发中的
    配置管理、服务发现、断路器、智能路由、微代理、控制总线、全局锁、决策竞选、分布式会话和集群状态管理等操作提供了一种简单的开发方式。
@@ -10,19 +13,28 @@ Spring Cloud CLI等项目。
 
 ### Spring Cloud 组件
 + 随着Netflix's (OSS) Spring Cloud项目的流行和成功，或许可以考虑将它集成到那些以任务为关键的API里。Netflix的项目建立在Spring Boot框架之上，提供了如下组件：
-1. Eureka: 用于Spring管理下的bean服务发现(注册中心)
-2. Zuul: 处理路由服务，被视为请求的”守门员“(网关)
++ <https://mp.weixin.qq.com/s/JLyjk2Nt1I2APqp6IXENnA>
++ Spring boot - 微服务的入门级微框架，用来简化 Spring 应用的初始搭建以及开发过程。
+1. Eureka: 用于Spring管理下的bean服务发现(注册中心).
+云端服务发现，一个基于 REST 的服务，用于定位服务，以实现云端中间层服务发现和故障转移。
+2. Zuul: 处理路由服务，被视为请求的”守门员“(网关)(智能路由).
+是在云平台上提供动态路由，监控，弹性，安全等边缘服务的框架。Zuul 相当于是设备和 Netflix 流应用的 Web 网站后端所有请求的前门。
 3. Ribbon: 用于动态路由和负载均衡(路由与负载均衡)
-4. Hystrix: 提供了断路器功能，以处理无响应的API调用(断路器)
-5. Turbine: 提供了关于Hystrix的全部可用断路器的信息
-6. Config: (分布式配置)
-7. Sleuth: (服务调用跟踪)
-
+提供云端负载均衡，有多种负载均衡策略可供选择，可配合服务发现和断路器使用。
+4. Hystrix: 提供了断路器功能，以处理无响应的API调用(断路器).
+熔断器，容错管理工具，旨在通过熔断机制控制服务和第三方库的节点,从而对延迟和故障提供更强大的容错能力。
+5. Turbine: 提供了关于Hystrix的全部可用断路器的信息.
+Turbine 是聚合服务器发送事件流数据的一个工具，用来监控集群下 hystrix 的 metrics 情况。
+6. Spring Cloud Config: - 配置管理工具包，让你可以把配置放到远程服务器，集中化管理集群配置，目前支持本地存储、Git 以及 Subversion。 (分布式配置)
+7. Spring Cloud Sleuth: (服务调用跟踪)
+日志收集工具包，封装了 Dapper 和 log-based 追踪以及 Zipkin 和 HTrace 操作，为 SpringCloud 应用实现了一种分布式追踪解决方案。
+8. Spring Cloud Bus - 事件、消息总线，用于在集群（例如，配置变化事件）中传播状态变化，可与 Spring Cloud Config 联合实现热部署。(消息总线)
+9. Spring Cloud Stream - Spring 数据流操作开发包，封装了与 Redis、Rabbit、Kafka 等发送接收消息。
+10. Feign - Feign 是一种声明式、模板化的 HTTP 客户端。
+11. Spring Cloud OAuth2 - 基于 Spring Security 和 OAuth2 的安全工具包，为你的应用程序添加安全控制。
 
 <pre>
 日志输出	ELK
-认证集成	OAuth 2
-消息总线	Bus
 批量任务	Task
 </pre>
 
@@ -55,5 +67,12 @@ Eureka
 + Spring Cloud构建微服务架构（一）服务注册与发现:<http://mp.weixin.qq.com/s/bXo2u2ODpKknrubF_IXqvQ>
 + Spring Cloud 系列文章: <http://www.ityouknow.com/spring-cloud>
 + 从 Spring Cloud 开始，聊聊微服务架构实践之路:<https://mp.weixin.qq.com/s/bKBTDeEwki6NoxkoI2DzEQ>
+
+---
+
+### 服务治理
++ Spring Cloud为服务治理做了一层抽象接口，所以在Spring Cloud应用中可以支持多种不同的服务治理框架
++ Netflix Eureka、Consul、Zookeeper。
++ 服务注册、服务发现、服务调用等
 
 
