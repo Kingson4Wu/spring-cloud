@@ -1,4 +1,4 @@
-package com.kxw.microservice.eureka.controller;
+package com.kxw.microservice.eureka.client.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * http://www.spring4all.com/article/291
  */
-@RestController
+@RestController("eurekaClientDcController")
 public class DcController {
 
     @Autowired

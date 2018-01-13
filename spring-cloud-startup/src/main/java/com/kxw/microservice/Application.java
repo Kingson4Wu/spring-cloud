@@ -3,7 +3,7 @@ package com.kxw.microservice;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.kxw.microservice.eureka.EurekaClientAutoConfiguration;
+import com.kxw.microservice.eureka.client.EurekaClientAutoConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.web.ServerProperties;

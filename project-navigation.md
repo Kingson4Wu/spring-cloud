@@ -18,6 +18,19 @@
 + 于Consul自身提供了服务端，所以我们不需要像之前实现Eureka的时候创建服务注册中心，直接通过下载consul的服务端程序就可以使用。
 + 命令启动consul的开发模式：`$consul agent -dev `
 + consul服务端启动完成之后，我们再将之前改造后的consul服务提供者启动起来。consul与eureka一样，都提供了简单的ui界面来查看服务的注册情况
++ spring-cloud-consul-client, import to spring-cloud-startup and run it (localhost:8080)
 + 安装consul，移步官网https://www.consul.io下载安装并启动consul服务。 
  
+#### 服务消费(服务调用)
++ Spring Cloud构建微服务架构：服务消费（基础）:<http://www.spring4all.com/article/292>
++ 在Spring Cloud Commons中提供了大量的与服务治理相关的抽象接口，包括DiscoveryClient、这里我们即将介绍的LoadBalancerClient等。
++ spring-cloud-eureka-consumer(localhost:8082)
++ 将eureka-server、eureka-client、eureka-consumer都启动起来，然后访问http://localhost:8082/consumer ，来跟踪观察eureka-consumer服务是如何消费eureka-client服务的/dc接口的。
++ 可以监控调用数?拓扑?
+---
+
++ startup:8080
++ eureka-server:8081
++ eureka-consumer:8082
+
 

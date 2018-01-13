@@ -54,10 +54,10 @@
             <groupId>com.kxw.microservice</groupId>
             <artifactId>spring-cloud-eureka-client</artifactId>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>com.kxw.microservice</groupId>
             <artifactId>spring-cloud-consul-client</artifactId>
-        </dependency>
+        </dependency>-->
 
     </dependencies>
 

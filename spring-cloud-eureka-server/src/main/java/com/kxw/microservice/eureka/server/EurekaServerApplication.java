@@ -1,4 +1,4 @@
-package com.kxw.microservice.eureka;
+package com.kxw.microservice.eureka.server;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
