@@ -21,12 +21,26 @@
 + spring-cloud-consul-client, import to spring-cloud-startup and run it (localhost:8080)
 + 安装consul，移步官网https://www.consul.io下载安装并启动consul服务。 
  
-#### 服务消费(服务调用)
+### 服务消费(服务调用)
+#### eureka consumer
 + Spring Cloud构建微服务架构：服务消费（基础）:<http://www.spring4all.com/article/292>
 + 在Spring Cloud Commons中提供了大量的与服务治理相关的抽象接口，包括DiscoveryClient、这里我们即将介绍的LoadBalancerClient等。
 + spring-cloud-eureka-consumer(localhost:8082)
 + 将eureka-server、eureka-client、eureka-consumer都启动起来，然后访问http://localhost:8082/consumer ，来跟踪观察eureka-consumer服务是如何消费eureka-client服务的/dc接口的。
 + 可以监控调用数?拓扑?
+
+#### Ribbon
++ 美[ˈrɪbən]
++ Spring Cloud构建微服务架构：服务消费（Ribbon）:<http://www.spring4all.com/article/293>
++ Spring Cloud Ribbon是基于Netflix Ribbon实现的一套客户端负载均衡的工具。它是一个基于HTTP和TCP的客户端负载均衡器。它可以通过在客户端中配置ribbonServerList来设置服务端列表去轮询访问以达到均衡负载的作用。
++ 当Ribbon与Eureka联合使用时，ribbonServerList会被DiscoveryEnabledNIWSServerList重写，扩展成从Eureka注册中心中获取服务实例列表。同时它也会用NIWSDiscoveryPing来取代IPing，它将职责委托给Eureka来确定服务端是否已经启动。
++ 而当Ribbon与Consul联合使用时，ribbonServerList会被ConsulServerList来扩展成从Consul获取服务实例列表。同时由ConsulPing来作为IPing接口的实现。
++ 在使用Spring Cloud Ribbon的时候，不论是与Eureka还是Consul结合，都会在引入Spring Cloud Eureka或Spring Cloud Consul依赖的时候通过自动化配置来加载上述所说的配置内容，所以我们可以快速在Spring Cloud中实现服务间调用的负载均衡。
++ spring-cloud-eureka-consumer-ribbon  (localhost:8082)
+
+
+
+
 ---
 
 + startup:8080

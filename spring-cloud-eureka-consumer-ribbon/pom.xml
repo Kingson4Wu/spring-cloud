@@ -8,21 +8,33 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>spring-cloud-common</artifactId>
+    <artifactId>spring-cloud-eureka-consumer-ribbon</artifactId>
     <packaging>jar</packaging>
 
-    <name>spring-cloud-common</name>
+    <name>spring-cloud-eureka-consumer-ribbon</name>
 
     <dependencies>
+        <dependency>
+            <groupId>com.kxw.microservice</groupId>
+            <artifactId>spring-cloud-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-ribbon</artifactId>
+        </dependency>
+       
     </dependencies>
 
 </project>
