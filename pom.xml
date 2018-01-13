@@ -18,6 +18,7 @@
         <module>spring-cloud-consul-client</module>
         <module>spring-cloud-eureka-consumer</module>
         <module>spring-cloud-eureka-consumer-ribbon</module>
+        <module>spring-cloud-eureka-consumer-feign</module>
 
     </modules>
 
@@ -140,6 +141,11 @@
                 <artifactId>spring-cloud-starter-ribbon</artifactId>
                 <version>${spring-cloud.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-feign</artifactId>
+                <version>${spring-cloud.version}</version>
+            </dependency>
 
             <!-- spring-cloud module -->
             <dependency>
@@ -162,6 +168,7 @@
                 <artifactId>spring-cloud-eureka-consumer</artifactId>
                 <version>${project.version}</version>
             </dependency>
+
 
 
         </dependencies>
