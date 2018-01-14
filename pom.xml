@@ -24,6 +24,7 @@
         <module>spring-cloud-consumer-hystrix</module>
         <module>spring-cloud-hystrix-dashboard</module>
         <module>spring-cloud-turbine</module>
+        <module>spring-cloud-zuul-api-gateway</module>
 
     </modules>
 
@@ -191,6 +192,11 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-netflix-archaius</artifactId>
+                <version>${spring-cloud.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-zuul</artifactId>
                 <version>${spring-cloud.version}</version>
             </dependency>
 

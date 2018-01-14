@@ -151,6 +151,17 @@
     - 通过Hystrix Dashboard开启对http://localhost:8989/turbine.stream的监控，我们可以获得如之前实现的同样效果，只是这里我们的监控信息收集时是通过了消息代理异步实现的。
     
 
+### 服务网关
++ 焦点聚集在对外服务
++ 将权限控制这样的东西从我们的服务单元中抽离出去，而最适合这些逻辑的地方就是处于对外访问最前端的地方，我们需要一个更强大一些的均衡负载器，它就是本文将来介绍的：服务网关。
++ 服务网关是微服务架构中一个不可或缺的部分。通过服务网关统一向外系统提供REST API的过程中，除了具备服务路由、均衡负载功能之外，它还具备了权限控制等功能。Spring Cloud Netflix中的Zuul就担任了这样的一个角色，为微服务架构提供了前门保护的作用，同时将权限控制这些较重的非业务逻辑内容迁移到服务路由层面，使得服务集群主体能够具备更高的可复用性和可测试性。
++ spring-cloud-zuul-api-gateway
++ 一个基于Spring Cloud Zuul服务网关就已经构建完毕。启动该应用，一个默认的服务网关就构建完毕了。由于Spring Cloud Zuul在整合了Eureka之后，具备默认的服务路由功能，即：当我们这里构建的api-gateway应用启动并注册到eureka之后，服务网关会发现上面我们启动的两个服务eureka-client和eureka-consumer，这时候Zuul就会创建两个路由规则。每个路由规则都包含两部分，一部分是外部请求的匹配规则，另一部分是路由的服务ID。针对当前示例的情况，Zuul会创建下面的两个路由规则：
+  - 转发到eureka-client服务的请求规则为：/eureka-client/**
+  - 转发到eureka-consumer服务的请求规则为：/eureka-consumer/**  
++ http://localhost:8086/kingson-micro-service/dc 该请求将最终被路由到kingson-micro-service的/dc接口上
+
+
 
 ---
 
@@ -160,5 +171,6 @@
 + config-center-server:8083(配置中心)
 + hystrix-dashboard:8084
 + turbine:8085(hystrix-dashboard 多实例聚合监控)
++ zuul-api-gateway:8086(服务网关)
 
 
