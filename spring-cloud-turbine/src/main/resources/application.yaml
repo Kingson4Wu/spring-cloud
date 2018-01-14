@@ -1,0 +1,9 @@
+server:
+  port: 8080
+  context-path: /
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
