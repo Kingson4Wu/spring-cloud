@@ -183,6 +183,16 @@
 
 
 ### 消息总线
++ <https://www.jianshu.com/p/c43e175b8b1e>
++ http://localhost:8080/config
++ vi kingson-micro-service.yml 
++ `curl  -i -d "" "http://localhost:8080/bus/refresh"`
++ http://localhost:8080/info
++ 指定刷新范围:bus/refresh?destination=customers:**
++ 感觉不怎么样
+
+
+
 
 
 
