@@ -67,6 +67,10 @@
             <groupId>com.kxw.microservice</groupId>
             <artifactId>spring-cloud-config-center-client</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.kxw.microservice</groupId>
+            <artifactId>spring-cloud-security-oauth</artifactId>
+        </dependency>
     </dependencies>
 
 

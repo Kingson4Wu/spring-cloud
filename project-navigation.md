@@ -192,6 +192,23 @@
 + 感觉不怎么样
 
 
+#### Spring Cloud Stream
++ <https://segmentfault.com/a/1190000012497486>
++ Spring Cloud Stream是一个用来为微服务应用构建消息驱动能力的框架。它可以基于Spring Boot来创建独立的、可用于生产的Spring应用程序。它通过使用Spring Integration来连接消息代理中间件以实现消息事件驱动的微服务应用。Spring Cloud Stream为一些供应商的消息中间件产品提供了个性化的自动化配置实现，并且引入了发布-订阅、消费组以及消息分区这三个核心概念。
+简单的说，Spring Cloud Stream本质上就是整合了Spring Boot和Spring Integration，实现了一套轻量级的消息驱动的微服务框架。
++ 如果仅仅是rabaitmq,可以不用这个的吧
+
+
+### 分布式服务跟踪
++ TODO
+
+### Spring Cloud Security
++ <http://www.spring4all.com/article/226>
++ 前往https://github.com/settings/developers，点击“Register a new application”按钮，添加一个应用。
++ spring-cloud-security-oauth(localhost:8080)
+
+
+
 
 
 

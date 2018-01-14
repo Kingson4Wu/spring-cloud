@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.kxw.microservice.configcenter.client.ConfigCenterClientAutoConfiguration;
 import com.kxw.microservice.eureka.client.EurekaClientAutoConfiguration;
+import com.kxw.microservice.security.SpringSecurityAutoConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.web.ServerProperties;
@@ -26,7 +27,8 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 @Import({
     EurekaClientAutoConfiguration.class,
     /*ConsulClientAutoConfiguration.class*/
-    ConfigCenterClientAutoConfiguration.class
+    ConfigCenterClientAutoConfiguration.class,
+    SpringSecurityAutoConfiguration.class
 })
 @EnableDiscoveryClient
 @ServletComponentScan
