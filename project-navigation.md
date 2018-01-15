@@ -1,4 +1,7 @@
-
+### 服务治理
++ Spring Cloud为服务治理做了一层抽象接口，所以在Spring Cloud应用中可以支持多种不同的服务治理框架
++ Netflix Eureka、Consul、Zookeeper。
++ 服务注册、服务发现、服务调用等
 
 ### 服务注册与发现
 + 服务 Spring Cloud构建微服务架构：服务注册与发现（Eureka、Consul）:<http://www.spring4all.com/article/291>
@@ -239,7 +242,7 @@ cr - Client Received （客户端接收响应）-此时Span的结束，如果cr�
 </pre>
     
 + spring-cloud-sleuth-zipkin , import to spring-cloud-startup and run it (localhost:8080)
-    1. kingson-micro-service(服务提供者)(Sleuth + kafka)(打印zipkin规范的日志到本地文件,kafka负责收集)
+    1. kingson-micro-service(服务提供者)(Sleuth + kafka)(发送zipkin规范的数据到kafka)
     2. zipkin-server (kafka + elasticsearch)(收集kafka的日志,持久化到es,以及前台展示)(kafka是使用zookeeper来管理,启动需先连接zookeeper)
 + 启动步骤
     1. 启动zookeeper (/usr/local/soft/kafka_2.11-0.10.0.1) `bin/zookeeper-server-start.sh config/zookeeper.properties` 

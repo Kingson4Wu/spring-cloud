@@ -67,6 +67,14 @@ Eureka
 + Spring Cloud构建微服务架构（一）服务注册与发现:<http://mp.weixin.qq.com/s/bXo2u2ODpKknrubF_IXqvQ>
 + Spring Cloud 系列文章: <http://www.ityouknow.com/spring-cloud>
 + 从 Spring Cloud 开始，聊聊微服务架构实践之路:<https://mp.weixin.qq.com/s/bKBTDeEwki6NoxkoI2DzEQ>
++ Google和eBay在建设微服务生态系统中的深刻教训:<http://geek.csdn.net/news/detail/48762>
+
+#### API 网关
++ Spring-Cloud-Gateway 源码解析 —— 网关初始化:<http://www.iocoder.cn/Spring-Cloud-Gateway/init>
++ 微服务架构中整合网关、权限服务:<http://blueskykong.com/2017/12/10/integration/>
++ 微服务下的网关与容错:<https://mp.weixin.qq.com/s/1nMdpWKH7TuwtfW71hR3Lw>
++ 有赞API网关实践:<https://tech.youzan.com/api-gateway-in-practice/>
+
 
 ---
 
@@ -74,5 +82,11 @@ Eureka
 + Spring Cloud为服务治理做了一层抽象接口，所以在Spring Cloud应用中可以支持多种不同的服务治理框架
 + Netflix Eureka、Consul、Zookeeper。
 + 服务注册、服务发现、服务调用等
+
+
+### API 网关
++ 接入、路由、限流等功能
++ 各自的服务提供方专注于业务逻辑的实现，从而给客户端调用提供了一个稳健的服务调用环境。
++ 在网关大调用量的情况下，还要保证网关的可降级、可限流、可隔离等等一系列容错能力。
 
 
