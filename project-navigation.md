@@ -181,6 +181,9 @@
 + http://localhost:8086/kingson-micro-service/dc&accessToken=token  
 + 可以根据自己的需要在服务网关上定义一些与业务无关的通用逻辑实现对请求的过滤和拦截，比如：签名校验、权限校验、请求限流等功能。
 
+##### Zuul统一异常处理
++ TODO
+
 
 ### 消息总线
 + <https://www.jianshu.com/p/c43e175b8b1e>
@@ -207,6 +210,56 @@
 + 前往https://github.com/settings/developers，点击“Register a new application”按钮，添加一个应用。
 + spring-cloud-security-oauth(localhost:8080)
 
+### 链路监控
++ TODO
++ Sleuth和Zipkin,elasticsearch,kafka
++ spring cloud提供了spring-cloud-sleuth来方便集成zipkin实现
+
+
+#### zipkin
++ zipkin是twitter公司基于Google的drapper论文，创建一套分布式、服务计时框架，可以用于链路跟踪。目前有的java版本的实现有DropWizard zipkin和Springcloud-sleuth+zipkin等。
++ 概念
+    1. trace：traceid是该链路的唯一标识 
+    2. span：是链路调用的节点，是链路上一次方法执行的过程。spanId是该过程的标识，同时span可以通过添加tag的方式附加业务信息。 
+    3. Springcloud针对链路节点过程抽象了四种类型： 
+    4. sr：server receive服务端接收 
+    5. ss：server send 服务端发送 
+    6. cr： client receive 客户端接收 
+    7. cs：Client send 客户端发送。
+ 
+<pre>
+Span：基本工作单元，发送一个远程调度任务 就会产生一个Span，Span是一个64位ID唯一标识的，Trace是用另一个64位ID唯一标识的，Span还有其他数据信息，比如摘要、时间戳事件、Span的ID、以及进度ID。
+Trace：一系列Span组成的一个树状结构。请求一个微服务系统的API接口，这个API接口，需要调用多个微服务，调用每个微服务都会产生一个新的Span，所有由这个请求产生的Span组成了这个Trace。
+Annotation：用来及时记录一个事件的，一些核心注解用来定义一个请求的开始和结束 。这些注解包括以下： 
+cs - Client Sent -客户端发送一个请求，这个注解描述了这个Span的开始
+sr - Server Received -服务端获得请求并准备开始处理它，如果将其sr减去cs时间戳便可得到网络传输的时间。
+ss - Server Sent （服务端发送响应）–该注解表明请求处理的完成(当请求返回客户端)，如果ss的时间戳减去sr时间戳，就可以得到服务器请求的时间。
+cr - Client Received （客户端接收响应）-此时Span的结束，如果cr的时间戳减去cs时间戳便可以得到整个请求所消耗的时间。
+</pre>
+    
++ spring-cloud-sleuth-zipkin , import to spring-cloud-startup and run it (localhost:8080)
+    1. kingson-micro-service(服务提供者)(Sleuth + kafka)(打印zipkin规范的日志到本地文件,kafka负责收集)
+    2. zipkin-server (kafka + elasticsearch)(收集kafka的日志,持久化到es,以及前台展示)(kafka是使用zookeeper来管理,启动需先连接zookeeper)
++ 启动步骤
+    1. 启动zookeeper (/usr/local/soft/kafka_2.11-0.10.0.1) `bin/zookeeper-server-start.sh config/zookeeper.properties` 
+    2. 启动kafka (/usr/local/soft/kafka_2.11-0.10.0.1) `bin/kafka-server-start.sh config/server.properties`
+    3. 启动elasticsearch (/usr/local/soft/elasticsearch-6.1.1) `bin/elasticsearch`
+    4. 启动ZipkinServerApplication (http://localhost:8087/zipkin/)
+        - kafka.network.InvalidRequestException: Error getting request for apiKey: 3 and apiVersion: 2(kafka 版本太低)
+         换成最新kafka_2.11-0.10.0.1
+         
+
+---
++ Spring Cloud各组件超时:<http://www.spring4all.com/article/275>
+
+
+
+---
+
+#### spring cloud 总结
++ 配置简单,接入快速
++ 很多组件应用侵入,提供接口,而不是另开进程通过收集日志方式
++ 监控功能不足, 报表差(调用关系拓扑等)
 
 
 
@@ -224,5 +277,7 @@
 + hystrix-dashboard:8084
 + turbine:8085(hystrix-dashboard 多实例聚合监控)
 + zuul-api-gateway:8086(服务网关)
++ zipkin-server:8087(分布式追踪服务)
+
 
 

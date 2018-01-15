@@ -1,0 +1,31 @@
+server:
+  port: 8080
+  context-path: /
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+#配置kafka
+  sleuth:
+    enabled: false
+    sampler:
+      percentage: 1.0 #抽样率percentage：设置为100%，表示会抽取所有记录
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+          zkNodes: localhost:2181
+  #ES配置
+zipkin:
+  storage:
+    type: elasticsearch
+    elasticsearch:
+      host: localhost:9200
+      cluster: elasticsearch
+      index: zipkin
+      index-shards: 1
+      index-replicas: 1

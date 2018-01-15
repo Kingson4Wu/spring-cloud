@@ -26,6 +26,8 @@
         <module>spring-cloud-turbine</module>
         <module>spring-cloud-zuul-api-gateway</module>
         <module>spring-cloud-security-oauth</module>
+        <module>spring-cloud-zipkin-server</module>
+        <module>spring-cloud-sleuth-zipkin</module>
 
     </modules>
 
@@ -65,7 +67,10 @@
         <spring-cloud-consul.version>1.3.0.RELEASE</spring-cloud-consul.version>
         <spring-cloud-bus.version>1.3.2.RELEASE</spring-cloud-bus.version>
         <spring-cloud-security.version>1.2.1.RELEASE</spring-cloud-security.version>
+        <spring-cloud-sleuth-zipkin.version>1.3.0.RELEASE</spring-cloud-sleuth-zipkin.version>
+        <spring-cloud-stream-kafka.version>1.3.2.RELEASE</spring-cloud-stream-kafka.version>
         <netflix.version>0.7.5</netflix.version>
+        <zipkin.version>2.4.3</zipkin.version>
         <jdk.version>1.8</jdk.version>
         <kotlin.version>1.2.0</kotlin.version>
         <logback.version>1.2.2</logback.version>
@@ -228,6 +233,55 @@
                 <artifactId>spring-cloud-starter-security</artifactId>
                 <version>${spring-cloud-security.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-sleuth-zipkin-stream</artifactId>
+                <version>${spring-cloud-sleuth-zipkin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-stream-kafka</artifactId>
+                <version>${spring-cloud-stream-kafka.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-sleuth</artifactId>
+                <version>${spring-cloud-sleuth-zipkin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-stream-binder-kafka</artifactId>
+                <version>${spring-cloud-stream-kafka.version}</version>
+            </dependency>
+
+            <!-- zipkin -->
+            <dependency>
+                <groupId>io.zipkin.java</groupId>
+                <artifactId>zipkin</artifactId>
+                <version>${zipkin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.zipkin.java</groupId>
+                <artifactId>zipkin-server</artifactId>
+                <version>${zipkin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.zipkin.java</groupId>
+                <artifactId>zipkin-autoconfigure-ui</artifactId>
+                <version>${zipkin.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.zipkin.java</groupId>
+                <artifactId>zipkin-autoconfigure-storage-elasticsearch-http</artifactId>
+                <version>${zipkin.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.zipkin.java</groupId>
+                <artifactId>zipkin-autoconfigure-storage-elasticsearch</artifactId>
+                <version>1.21.0</version>
+            </dependency>
 
             <!-- spring-cloud module -->
             <dependency>
@@ -260,6 +314,7 @@
                 <artifactId>spring-cloud-security-oauth</artifactId>
                 <version>${project.version}</version>
             </dependency>
+
 
 
 

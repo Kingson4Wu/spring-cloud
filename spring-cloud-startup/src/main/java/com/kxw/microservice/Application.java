@@ -23,7 +23,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.filter.CharacterEncodingFilter;
 
 
-
+//@EnableAutoConfiguration 就不用import??
 @Import({
     EurekaClientAutoConfiguration.class,
     /*ConsulClientAutoConfiguration.class*/
