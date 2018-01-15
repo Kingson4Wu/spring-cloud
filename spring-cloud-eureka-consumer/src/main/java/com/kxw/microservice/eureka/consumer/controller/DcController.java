@@ -19,6 +19,10 @@ public class DcController {
     @Autowired
     RestTemplate restTemplate;
 
+    /**
+     * startup加了spring-cloud-security-oauth会导致空白???
+     * @return
+     */
     @GetMapping("/consumer")
     public String dc() {
         ServiceInstance serviceInstance = loadBalancerClient.choose(CloudConstants.SERVICE_NAME);

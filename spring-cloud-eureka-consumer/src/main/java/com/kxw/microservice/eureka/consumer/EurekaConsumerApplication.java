@@ -1,15 +1,20 @@
 package com.kxw.microservice.eureka.consumer;
 
+import com.kxw.microservice.sleuth.zipkin.SleuthZipkinAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Import;
 import org.springframework.web.client.RestTemplate;
 
 /**
  * Created by kingsonwu on 18/1/12.
  * http://www.spring4all.com/article/292
  */
+@Import({
+    SleuthZipkinAutoConfiguration.class
+})
 @EnableDiscoveryClient
 @SpringBootApplication
 public class EurekaConsumerApplication {

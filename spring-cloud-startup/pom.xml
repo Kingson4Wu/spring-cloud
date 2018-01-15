@@ -43,6 +43,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>ch.qos.logback</groupId>
@@ -67,9 +71,13 @@
             <groupId>com.kxw.microservice</groupId>
             <artifactId>spring-cloud-config-center-client</artifactId>
         </dependency>
-        <dependency>
+       <!-- <dependency>
             <groupId>com.kxw.microservice</groupId>
             <artifactId>spring-cloud-security-oauth</artifactId>
+        </dependency>-->
+        <dependency>
+            <groupId>com.kxw.microservice</groupId>
+            <artifactId>spring-cloud-sleuth-zipkin</artifactId>
         </dependency>
     </dependencies>
 

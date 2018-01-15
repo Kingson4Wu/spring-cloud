@@ -215,6 +215,7 @@
 + Sleuth和Zipkin,elasticsearch,kafka
 + spring cloud提供了spring-cloud-sleuth来方便集成zipkin实现
 
++ Sleuth 美[sluθ]
 
 #### zipkin
 + zipkin是twitter公司基于Google的drapper论文，创建一套分布式、服务计时框架，可以用于链路跟踪。目前有的java版本的实现有DropWizard zipkin和Springcloud-sleuth+zipkin等。
@@ -247,7 +248,20 @@ cr - Client Received （客户端接收响应）-此时Span的结束，如果cr�
     4. 启动ZipkinServerApplication (http://localhost:8087/zipkin/)
         - kafka.network.InvalidRequestException: Error getting request for apiKey: 3 and apiVersion: 2(kafka 版本太低)
          换成最新kafka_2.11-0.10.0.1
-         
+    5. 启动EurekaServerApplication, ConfigCenterServerApplication ,spring-cloud-startup  
+        - spring-boot-maven-plugin:1.5.8.RELEASE:run (default-cli) on project spring-cloud-startup: An exception occurred while running. null: InvocationTargetException: Failed to start bean 'outputBindingLifecycle'; nested exception is java.lang.IllegalStateException: A default binder has been requested, but there is more than one binder available for 'org.springframework.integration.channel.DirectChannel' : rabbit,kafka, and no default binder has been set.
+
++ 排查问题
+    1. 查看kafka的数据
+        - `bin/kafka-topics.sh --zookeeper localhost:2181 --list`
+        - `bin/kafka-topics.sh --zookeeper localhost:2181 --describe --topic sleuth`
+        - `bin/kafka-console-consumer.sh --zookeeper  localhost:2181  --from-beginning --topic sleuth`(控制台接收数据)(控制台接受过zipkin还能收到??TODO)
+    2. 查看elsticsearch数据
+        - `curl "http://localhost:9200/zipkin*/_search?pretty "`
+
++ 调用http://localhost:8082/consumer
++ spring-cloud-eureka-consumer 也 import  spring-cloud-sleuth-zipki(就可以看到调用链了)
+
 
 ---
 + Spring Cloud各组件超时:<http://www.spring4all.com/article/275>
