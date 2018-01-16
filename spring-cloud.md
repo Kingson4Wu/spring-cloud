@@ -32,6 +32,13 @@ Turbine 是聚合服务器发送事件流数据的一个工具，用来监控集
 9. Spring Cloud Stream - Spring 数据流操作开发包，封装了与 Redis、Rabbit、Kafka 等发送接收消息。
 10. Feign - Feign 是一种声明式、模板化的 HTTP 客户端。
 11. Spring Cloud OAuth2 - 基于 Spring Security 和 OAuth2 的安全工具包，为你的应用程序添加安全控制。
+12. Spring Cloud for Cloud Foundry : 提供服务发现实现，并且还可以轻松实现SSO和OAuth2保护的资源，还可以创建Cloudfoundry服务代理.
+13. Spring Cloud Data Flow:是一种针对现代的运行时可组合的微服务应用程序的本地云(cloud-native)编排服务。 通过Spring Cloud Data Flow，开发人员可以为数据采集，实时分析和数据导入/导出等常见用例创建和编排数据管道(pipelines)。
+14. Spring Cloud Task:一种短期的微服务框架，用于快速构建执行有限数据处理的应用程序。 简单的声明，将功能和非功能特性添加到Spring Boot应用程序。
+15. Spring Boot CLI插件用于在Groovy中快速创建Spring Cloud组件应用程序
+
++ Spring Cloud 项目综述（技术栈一览）:<https://my.oschina.net/geekidentity/blog/876315>
+
 
 <pre>
 日志输出	ELK
@@ -68,6 +75,8 @@ Eureka
 + Spring Cloud 系列文章: <http://www.ityouknow.com/spring-cloud>
 + 从 Spring Cloud 开始，聊聊微服务架构实践之路:<https://mp.weixin.qq.com/s/bKBTDeEwki6NoxkoI2DzEQ>
 + Google和eBay在建设微服务生态系统中的深刻教训:<http://geek.csdn.net/news/detail/48762>
++ 为基于Spring Boot的微服务架构搭建一套自动化、集中管理的API文档中心:<https://burnettzhong.github.io/2017/04/08/parliament/>
++ 微服务环境下的集成测试探索:<https://mp.weixin.qq.com/s/LhyvTtWCEZSUIrizqz7Wrg>,WireMock,Spring Cloud Contract
 
 #### API 网关
 + Spring-Cloud-Gateway 源码解析 —— 网关初始化:<http://www.iocoder.cn/Spring-Cloud-Gateway/init>
@@ -82,11 +91,16 @@ Eureka
 + Spring Cloud为服务治理做了一层抽象接口，所以在Spring Cloud应用中可以支持多种不同的服务治理框架
 + Netflix Eureka、Consul、Zookeeper。
 + 服务注册、服务发现、服务调用等
++ 使用Istio治理微服务入门:<https://mp.weixin.qq.com/s/LZwRpeeR3fwORsPLrgVHPg>
++ Istio集成了Zipkin，利用Zipkin我们可以做分布式服务调用的追踪。
+
 
 
 ### API 网关
 + 接入、路由、限流等功能
 + 各自的服务提供方专注于业务逻辑的实现，从而给客户端调用提供了一个稳健的服务调用环境。
 + 在网关大调用量的情况下，还要保证网关的可降级、可限流、可隔离等等一系列容错能力。
++ 技术专题讨论第一期总结：微服务中网关（API Gateway）的技术选型:<http://www.spring4all.com/article/336>
+
 
 
